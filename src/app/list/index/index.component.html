@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Inventory</h1>
+
+  <a href="#" routerLink="/list/create/" class="btn btn-success">Create New Item</a>
+
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>price</th>
+      <th width="220px">Action</th>
+    </tr>
+    <tr *ngFor="let list of lists">
+      <td>{{ list.id }}</td>
+      <td>{{ list.title }}</td>
+      <td>{{ list.desc }}</td>
+      <td>{{ list.price }}</td>
+      <td>
+        <a href="#" [routerLink]="['/list/', list.id, 'view']" class="btn btn-info">View</a>
+        <a href="#" [routerLink]="['/list/', list.id, 'edit']" class="btn btn-primary">Edit</a>
+        <button type="button" (click)="deleteList(list.id)" class="btn btn-danger">Delete</button>
+      </td>
+    </tr>
+  </table>
+</div>
